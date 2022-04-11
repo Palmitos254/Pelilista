@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gamelist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+    <h1>Pelilista</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Nimi</th>
+            <th>Alusta</th>
+            <th>Julkaisuvuosi</th>
+            <th>Pegi</th>
+            <th>Genre</th>
+        </tr>  
+        <tr th:each = "game : ${games}">
+            <td th:text="${game.name}"></td>
+            <td th:text="${game.platform}"></td>
+            <td th:text="${game.release}"></td>
+            <td th:text="${game.pegi}"></td>
+            <td th:text="${game.genre.name}"></td>
+                <td><a th:href="@{/delete/{id}(id=${game.id})}" class="btn btn-danger">Delete</a><td>
+                <td><a th:href="@{/edit/{id}(id=${game.id})}" class="btn btn-success">Edit</a></td>
+        </tr>
+     </table>
+        <a href="/add" class="btn btn-primary">Add Game</a> 
+</body>
+</html>

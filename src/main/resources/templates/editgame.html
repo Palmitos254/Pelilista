@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamelist</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Game</h1>
+        <form th:object="${game}" th:action="@{../save}" method="post" action="#">
+        
+            <label for="id"></label>
+            <input type="hidden" id="id" th:field="*{id}" readonly="readonly">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{name}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="platform">Platform</label>
+            <input type="text" id="platform" th:field="*{platform}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="release">Release</label>
+            <input type="text" id="release" th:field="*{release}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="pegi">Pegi</label>
+            <input type="text" id="pegi" th:field="*{pegi}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="genlist">Genre</label>
+             <select id="genlist" th:field="*{genre}" class="form-control">
+                <option th:each="genre: ${genres}" th:value="${genre.genreId}" th:text="${genre.name}"></option>
+            </select>         
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <input type="submit" value="Save"></input>
+        </form>
+    </div>
+</head>
+<body>

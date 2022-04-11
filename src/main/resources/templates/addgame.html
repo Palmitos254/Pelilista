@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gamelist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Add Game</h1>
+    <div>
+        <form th:object="${game}" th:action="@{save}" action="#" method="post">
+        
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{name}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="platform">Platform</label>
+            <input type="text" id="platform" th:field="*{platform}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <!--
+            <div class="container">
+            <p>Platforms:</p>
+            
+                <div class="group">
+                    <input type="checkbox" id="platform">
+                    <label for="platform">PC</label>
+                </div>
+                
+                <div class="group">
+                    <input type="checkbox" id="platform">
+                    <label for="platform">Xbox One</label>
+                </div>
+            
+                <div class="group">
+                    <input type="checkbox" id="platform">
+                    <label for="platform">Xbox 360</label>
+                </div>
+                
+                <div class="group">
+                    <input type="checkbox" id="platform">
+                    <label for="platform">PS4</label>
+                </div>
+                
+                <div class="group">
+                    <input type="checkbox" id="platform">
+                    <label for="platform">PS3</label>
+                </div>
+                
+                <div class="group">
+                    <input type="checkbox" id="platform">
+                    <label for="platform">Nintendo Switch</label>
+                </div>
+                
+            </div>
+            <div style="clear: both; display: block; height: 10px;"></div>
+            -->
+            
+            <label for="release">Release</label>
+            <input type="text" id="release" th:field="*{release}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="pegi">Pegi</label>
+            <input type="text" id="pegi" th:field="*{pegi}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <label for="genlist">Genre</label>
+             <select id="genlist" th:field="*{genre}" class="form-control">
+                <option th:each="genre: ${genres}" th:value="${genre.genreId}" th:text="${genre.name}"></option>
+            </select>         
+            <div style="clear: both; display: block; height: 10px;"></div>
+            
+            <input type="submit" value="Save"></input>
+        </form>
+    </div>
+</body>
+</html>
