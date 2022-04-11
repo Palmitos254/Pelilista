@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Genre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private Long genreId;
 	private String name;
 
