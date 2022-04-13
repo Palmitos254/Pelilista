@@ -53,6 +53,60 @@ public class GameController {
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Game game) {
+		System.out.println(game);
+		if (game.getPlatformTypePC()) {
+			if (game.getPlatform() == null) {
+				game.setPlatform("PC");
+				repository.save(game);
+			}
+		}
+
+		if (game.isPlatformTypeXbox()) {
+			if (game.getPlatform() == null) {
+				game.setPlatform("Xbox");
+				repository.save(game);
+			} else {
+				game.setPlatform(game.getPlatform() + " Xbox");
+				repository.save(game);
+			}
+		}
+		
+		if (game.isPlatformTypeXbox360()) {
+			if (game.getPlatform() == null) {
+				game.setPlatform("Xbox360");
+				repository.save(game);
+			} else {
+			game.setPlatform(game.getPlatform() + " Xbox360");
+			repository.save(game);
+		}}
+		
+		if (game.isPlatformTypePs3()) {
+			if (game.getPlatform() == null) {
+				game.setPlatform("Ps3");
+				repository.save(game);
+			} else {
+			game.setPlatform(game.getPlatform() + " Ps3");
+			repository.save(game);
+		}}
+		
+		if (game.isPlatformTypePs4()) {
+			if (game.getPlatform() == null) {
+				game.setPlatform("Ps4");
+				repository.save(game);
+			} else {
+			game.setPlatform(game.getPlatform() + " Ps4");
+			repository.save(game);
+		}}
+		
+		if (game.isPlatformTypeNintendoSwitch()) {
+			if (game.getPlatform() == null) {
+				game.setPlatform("NintendoSwitch");
+				repository.save(game);
+			} else {
+			game.setPlatform(game.getPlatform() + " NintendoSwitch");
+			repository.save(game);
+			
+		}}
 		repository.save(game);
 		return "redirect:gamelist";
 	}

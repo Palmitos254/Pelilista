@@ -29,10 +29,19 @@ public class PelilistaApplication {
 			grepository.save(new Genre("Platformer"));
 			grepository.save(new Genre("Rhythm game"));
 
-			repository.save(new Game("Elden Ring", "PC, PS4", 2022, 16, grepository.findByName("RPG").get(0)));
-			repository.save(new Game("Dark Souls", "PC, PS4", 2011, 16, grepository.findByName("RPG").get(0)));
-			repository.save(new Game("Terraria", "PC, PS4", 2011, 12, grepository.findByName("SandBox").get(0)));
-
+			Game game1 = new Game("Elden Ring", 2022, 16, true, false, true, false, true, false , grepository.findByName("RPG").get(0));
+			game1.setPlatform("PC Xbox360 Ps4");
+					repository.save(game1);
+			
+			Game game2 = new Game("Dark Souls", 2011, 16, true, true, false, false, false, true , grepository.findByName("RPG").get(0));
+			game2.setPlatform("PC Xbox NintendoSwitch");
+					repository.save(game2);
+			
+			Game game3 = new Game("Terraria", 2011, 12 , true , false, false, false, false, false , grepository.findByName("SandBox").get(0));
+			game3.setPlatform("PC");
+					repository.save(game3);
+			
+			
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6",
 					"user@user.com", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
