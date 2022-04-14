@@ -121,7 +121,23 @@ public class GameController {
 	@RequestMapping("/edit/{id}")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public String editGame(@PathVariable("id") Long gameId, Model model) {
-		model.addAttribute("game", repository.findById(gameId));
+
+		Optional<Game> game = repository.findById(gameId);
+		Game realGame = game.get();
+		boolean pc = realGame.getPlatformTypePC();
+		model.addAttribute("pc", pc);
+		boolean xbox = realGame.isPlatformTypeXbox();
+		model.addAttribute("xbox", xbox);
+		boolean xbox360 = realGame.isPlatformTypeXbox360();
+		model.addAttribute("xbox360", xbox360);
+		boolean ps3 = realGame.isPlatformTypePs3();
+		model.addAttribute("ps3", ps3);
+		boolean ps4 = realGame.isPlatformTypePs4();
+		model.addAttribute("ps4", ps4);
+		boolean nintendo = realGame.isPlatformTypeNintendoSwitch();
+		model.addAttribute("nintendo", nintendo);
+		model.addAttribute("game", realGame);
+		System.out.println(repository.findById(gameId));
 		model.addAttribute("genres", grepository.findAll());
 		return "editgame.html";
 	}

@@ -33,8 +33,8 @@ public class PelilistaApplication {
 			game1.setPlatform("PC Xbox360 Ps4");
 					repository.save(game1);
 			
-			Game game2 = new Game("Dark Souls", 2011, 16, true, true, false, false, false, true , grepository.findByName("RPG").get(0));
-			game2.setPlatform("PC Xbox NintendoSwitch");
+			Game game2 = new Game("Dark Souls", 2011, 16, false, true, false, false, false, true , grepository.findByName("RPG").get(0));
+			game2.setPlatform("Xbox NintendoSwitch");
 					repository.save(game2);
 			
 			Game game3 = new Game("Terraria", 2011, 12 , true , false, false, false, false, false , grepository.findByName("SandBox").get(0));

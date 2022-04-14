@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Gamelist</title>
+    <title>Edit Gamelist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
     <div class="container">
@@ -16,8 +16,46 @@
             <input type="text" id="name" th:field="*{name}" />
             <div style="clear: both; display: block; height: 10px;"></div>
             
+           <!--
             <label for="platform">Platform</label>
             <input type="text" id="platform" th:field="*{platform}" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            -->
+            
+            <div class="container">
+            <p>Platforms:</p>
+            
+                <div class="group">
+                    <input name="platformTypePC" type="checkbox" th:checked="${pc}" />     
+                    <label for="platformTypePC">PC</label>
+                </div>
+                
+                <div class="group">
+                    <input name="platformTypeXbox" type="checkbox" th:checked="${xbox}">
+                    <label for="platformTypeXbox">Xbox One</label>
+                </div>
+            
+                <div class="group">
+                    <input name="platformTypeXbox360" type="checkbox" th:checked="${xbox360}">
+                    <label for="platformTypeXbox360">Xbox 360</label>
+                </div>
+                
+                <div class="group">
+                    <input name="platformTypePs3" type="checkbox" th:checked="${ps3}">
+                    <label for="platformTypePs3">PS4</label>
+                </div>
+                
+                <div class="group">
+                    <input name="platformTypePs4" type="checkbox" th:checked="${ps4}">
+                    <label for="platformTypePs4">PS3</label>
+                </div>
+                
+                <div class="group">
+                    <input name="platformTypeNintendoSwitch" type="checkbox" th:checked="${nintendo}">
+                    <label for="platformTypeNintendoSwitch">Nintendo Switch</label>
+                </div>
+                
+            </div>
             <div style="clear: both; display: block; height: 10px;"></div>
             
             <label for="release">Release</label>
@@ -37,5 +75,5 @@
             <input type="submit" value="Save"></input>
         </form>
     </div>
-</head>
-<body>
+</body>
+</html>
